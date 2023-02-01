@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        h1{
+            font-size: 30px;
+            margin-left: 40%;
+            
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            width:60%;
+        }
+        label{
+            font-family:sans-serif;
+           
+        }
+        .formdesign{
+            margin-bottom: 1%;
+            width: 400px;
+            background-color: rgb(245, 192, 79);
+            height: 5%;
+        }
+        #signup{
+            background-color: rgb(100, 163, 6);
+            color: white;
+            border-radius: 5px;
+            height: 25px;
+            margin-top: 5%;
+            border-color: none;
+            margin-left: 50%;
+            cursor: pointer;
+            border-style: none;
+        }
+        .warning{
+            color: red;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form id="from"action=""onsubmit="return validateForm()">
+        <h1>SignUp</h1><br><br>
+
+        <label for="fname">First Name</label><br>
+        <input type="text"placeholder="Type your first name"id="fname"class="formdesign">
+        <label class="warning"id="fw"></label><br>
+
+        <label for="lname">Last Name</label><br>
+        <input type="text"placeholder="Type your last name"id="lname"class="formdesign">
+        <label class="warning"id="lw"></label><br>
+
+        <label for="email">Email</label><br>
+        <input type="email"placeholder="Type your email"id="email"class="formdesign">
+        <label class="warning"id="ew"></label><br>
+        
+        <label for="password">Password</label><br>
+        <input type="password"placeholder="Create a strong password"id="password"class="formdesign">
+        <label class="warning"id="pw"></label><br>
+
+        <label for="cpassword">Confirm Password</label><br>
+        <input type="password"placeholder="Write the same password"id="cpassword"class="formdesign">
+        <label class="warning"id="cpw"></label><br>
+
+        <button id="signup">Sign Up</button>
+
+        </form>
+    </div>
+    <script>
+        let fname = document.getElementById('fname');
+        let fw = document.getElementById('fw');
+        let lname = document.getElementById('lname');
+        let lw = document.getElementById('lw');
+        let email = document.getElementById('email');
+        let ew = document.getElementById('ew');
+        let password = document.getElementById('password');
+        let pw = document.getElementById('pw');
+        let confPassword = document.getElementById('cpassword');
+        let cpw = document.getElementById('cpw');
+        function validateForm(){
+            if(fname.value.length<3){
+               fw.innerHTML="Invalid first name"
+               return false;
+            }
+            else{
+                fw.innerHTML=""; //this will remove warning message
+            }
+
+            if(lname.value.length<3){
+                lw.innerHTML="Invalid last name "
+                return false;
+            }
+            else{
+                lw.innerHTML=""
+            }
+
+            if(password.value.length<6){
+                pw.innerHTML="Password must be of atleast 6 charecter"
+                return false;
+            }
+            else{
+                pw.innerHTML=""
+            }
+
+            if(password.value != confPassword.value){
+                cpw.innerHTML="Password is not same"
+                return false;
+            }
+            else{
+                cpw.innerHTML=""
+            }
+            return true
+        }
+    </script>
+</body>
+</html>
